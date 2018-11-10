@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component 1</title>
+    <link rel="stylesheet" href="first-component.css">
+    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    class Pet extends React.Component {
+        render() {
+            return (
+                <div className="card">
+                    <h2 className="name">Beach</h2>
+                    <img src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Beach"/>
+                    <h5 style={style.h5Style}>Things to do:</h5>
+                    <ul>
+                        <li style={style.liStyle}>Surfing</li>
+                        <li style={style.liStyle}>Snorkeling</li>
+                        <li style={style.liStyle}>Relaxing</li>
+                    </ul>
+                </div>
+            );
+        }
+    }
+
+    const style = {
+        h5Style: {
+            fontSize: '2em',
+            margin: '2px'
+        },
+        liStyle: {
+            fontSize: '1.5em'
+        }
+    };
+
+    ReactDOM.render(<Pet/>, document.getElementById('app'));
+
+  </script>
+</body>
+</html>

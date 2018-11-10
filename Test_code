@@ -1,0 +1,30 @@
+function Vehicle(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+}
+
+function Car(make, model, year) {
+    Vehicle.apply(this, arguments);
+    this.numWheels = 4;
+}
+
+function Motorcycle(make, model, year) {
+    Vehicle.apply(this, arguments);
+    this.numWheels = 2;
+}
+
+Vehicle.prototype.start = function () {
+    return 'Vrooom!!!';
+};
+
+Vehicle.prototype.toString = function () {
+    var content = this.make + " " + this.model + " " + this.year;
+    return 'The make, model, and year are ' + content;
+};
+
+Car.prototype = Object.create(Vehicle.prototype);
+Car.prototype.constructor = Car;
+
+Motorcycle.prototype = Object.create(Vehicle.prototype);
+Motorcycle.prototype.constructor = Motorcycle;
